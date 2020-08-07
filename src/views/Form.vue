@@ -1,14 +1,14 @@
 <template>
     <div>
-        <i-form :model="checkForm" :rules="checkFormRules">
+        <i-form :model="checkForm" :rules="checkFormRules" ref="checkForm">
             <i-form-item label="用户名" prop="name">
                 <i-input v-model="checkForm.name"></i-input>
             </i-form-item>
             <i-form-item label="邮箱" prop="mail">
                 <i-input v-model="checkForm.mail"></i-input>
             </i-form-item>
-            <button>提交</button>
-            <button>重置</button>
+            <button @click="submitForm">提交</button>
+            <button @click="resetForm">重置</button>
         </i-form>
     </div>
 </template>
@@ -37,6 +37,20 @@ export default {
                     { type: 'email', message: '邮箱格式不正确', trigger: 'blur' }
                 ],
             }
+        }
+    },
+    methods: {
+        submitForm () {
+            this.$refs.checkForm.validate( valid => {
+                if (valid) {
+                    window.alert('提交成功')
+                } else {
+                    window.alert('提交失败')
+                }
+            })
+        },
+        resetForm () {
+
         }
     }
 }

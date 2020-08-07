@@ -7,8 +7,10 @@
     </div>
 </template>
 <script>
+import Emitter from '../../minxins/emitter'
 export default {
     name: 'iFormItem',
+    mixins: [ Emitter ],
     props: {
         label: {
             type: String,
@@ -17,6 +19,19 @@ export default {
         prop: {
             type: String
         }
+    },
+    data () {
+        return {
+
+        }
+    },
+    mounted () {
+        if (this.prop) {
+            this.dispatch('iForm', 'on-form-item-add', this)
+        }
+    },
+    beforeDestroy () {
+        this.dispatch('iForm', 'on-form-item-remove', this)
     }
 }
 </script>
