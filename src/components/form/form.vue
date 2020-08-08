@@ -5,6 +5,9 @@
 </template>
 <script>
 export default {
+    provide: {
+        form: this
+    },
     name: 'iForm',
     props: {
         model: {

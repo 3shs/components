@@ -28,6 +28,19 @@ export default {
     mounted () {
         if (this.prop) {
             this.dispatch('iForm', 'on-form-item-add', this)
+            this.setRules()
+        }
+    },
+    methods: {
+        setRules () {
+            this.$on('on-form-blur', this.onFieldBlur)
+            this.$on('on-form-change', this.onFieldChange)
+        },
+        onFieldBlur () {
+
+        },
+        onFieldChange () {
+
         }
     },
     beforeDestroy () {

@@ -2,7 +2,7 @@
     <div>
         <i-form :model="checkForm" :rules="checkFormRules" ref="checkForm">
             <i-form-item label="用户名" prop="name">
-                <i-input v-model="checkForm.name"></i-input>
+                <i-input v-model="checkForm.name" :value="checkForm.name"></i-input>
             </i-form-item>
             <i-form-item label="邮箱" prop="mail">
                 <i-input v-model="checkForm.mail"></i-input>
