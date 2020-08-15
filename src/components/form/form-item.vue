@@ -8,9 +8,11 @@
 </template>
 <script>
 import Emitter from '../../minxins/emitter'
+import AsyncValidator from 'async-validator'
 export default {
     name: 'iFormItem',
     mixins: [ Emitter ],
+    inject: ['form'],
     props: {
         label: {
             type: String,
@@ -22,7 +24,12 @@ export default {
     },
     data () {
         return {
-
+        
+        }
+    },
+    computed: {
+        fieldVlalue () {
+            return this.form.model[this.prop]
         }
     },
     mounted () {
@@ -32,6 +39,10 @@ export default {
         }
     },
     methods: {
+        getRules () {
+            let formRules = this.form.rules
+            
+        },
         setRules () {
             this.$on('on-form-blur', this.onFieldBlur)
             this.$on('on-form-change', this.onFieldChange)
@@ -40,7 +51,7 @@ export default {
 
         },
         onFieldChange () {
-
+            
         }
     },
     beforeDestroy () {
