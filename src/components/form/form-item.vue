@@ -34,7 +34,7 @@ export default {
     },
     mounted () {
         if (this.prop) {
-            this.dispatch('iForm', 'on-form-item-add', this)
+            this.dispatch('iForm', 'on-form-item-add', this)    
             this.setRules()
         }
     },
