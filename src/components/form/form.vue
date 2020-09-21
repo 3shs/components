@@ -31,8 +31,12 @@ export default {
         })
     },
     methods: {
-        validate () {
-            
+        validate (callback) {
+            return new Promise( resolve => {
+                this.fields.forEach( field => {
+                    field.validate()
+                })
+            })
         }
     }
 }
