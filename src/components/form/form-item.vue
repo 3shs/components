@@ -55,6 +55,7 @@ export default {
             this.$on('on-form-change', this.onFieldChange)
         },
         validate (trigger, callback = function () {}) {
+            
             let rules = this.getFilterRules(trigger)
         },
         onFieldBlur () {
